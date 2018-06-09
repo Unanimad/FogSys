@@ -1,3 +1,7 @@
+import os, errno
+
+from fogsys.settings import CLOUD_DIR
+
 from django.db import models
 
 
@@ -9,6 +13,16 @@ class SensorType(models.Model):
 
     def __str__(self):
         return self.name
+
+    def save(self, commit=True):
+        try:
+            os.mkdir(os.path.join(CLOUD_DIR, self.name))
+            
+        except OSError as e:
+            if e.errno != errno.EEXIST:
+                raise
+
+        super(SensorType, self).save()
 
     class Meta:
         verbose_name = 'Tipo'
