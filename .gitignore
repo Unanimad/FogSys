@@ -1,3 +1,8 @@
+.idea/
+.vscode/
+fogsys/fogsys/core/cloud/production_measurement/
+fogsys/fogsys/core/cloud/test_measurement/
+
 
 # Created by https://www.gitignore.io/api/django,python,virtualenv
 
