@@ -21,5 +21,6 @@ from fogsys.core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url('fogsys/(?P<sensor_pk>\w+)/(?P<type_pk>\w+)/(?P<measurement>\d+\.\d{2})/$', views.save_measurement, name='measurement')
+    url('fogsys/(?P<sensor_pk>\w+)/(?P<measurement>\d+\.\d{2})/(?P<hash>\w+)$', views.save_measurement, name='measurement'),
+    url('test-measurement/$', views.test_measurement, name='test_measurement')
 ]
